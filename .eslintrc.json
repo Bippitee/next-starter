@@ -1,3 +1,24 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+    "extends": ["next/core-web-vitals", "next/typescript", "prettier"],
+    "rules": {
+        "prefer-arrow-callback": ["error"],
+        "prefer-template": ["error"],
+        "quotes": ["error", "double"],
+        "check-file/filename-naming-convention": [
+            "error",
+            {
+                "**/*.{ts,tsx,js,jsx}": "KEBAB_CASE"
+            },
+            {
+                "ignoreMiddleExtensions": true
+            }
+        ],
+        "check-file/folder-naming-convention": [
+            "error",
+            {
+                "/**/": "KEBAB_CASE"
+            }
+        ]
+    },
+    "plugins": ["check-file"]
 }

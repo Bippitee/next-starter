@@ -1,0 +1,121 @@
+@import "themes.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .container {
+    @apply mx-auto;
+  }
+
+  .bg-gradient {
+    background-image: var(--gradient);
+  }
+
+  .bg-striped {
+    background-image: repeating-linear-gradient(
+        -45deg,
+        hsl(var(--background)),
+        hsl(var(--background)) 10px,
+        hsl(var(--muted-foreground) / 0.25) 10px,
+        hsl(var(--muted-foreground) / 0.25) 20px
+      ),
+      var(--gradient);
+  }
+
+  /* Variable font weight */
+  .font-thin {
+    font-variation-settings: "wght" 100;
+  }
+  .font-extralight {
+    font-variation-settings: "wght" 200;
+  }
+  .font-light {
+    font-variation-settings: "wght" 300;
+  }
+  .font-normal {
+    font-variation-settings: "wght" 400;
+  }
+  .font-medium {
+    font-variation-settings: "wght" 500;
+  }
+  .font-semibold {
+    font-variation-settings: "wght" 600;
+  }
+  .font-bold {
+    font-variation-settings: "wght" 700;
+  }
+  .font-extrabold {
+    font-variation-settings: "wght" 800;
+  }
+  .font-black {
+    font-variation-settings: "wght" 900;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply scroll-m-20 tracking-tight text-balance;
+  }
+
+  h1 {
+    @apply text-4xl font-extrabold lg:text-5xl;
+  }
+
+  h2 {
+    @apply border-b pb-2 text-3xl font-semibold first:mt-0;
+  }
+
+  h3 {
+    @apply text-2xl font-semibold;
+  }
+
+  h4 {
+    @apply text-xl font-semibold;
+  }
+
+  p {
+    @apply leading-7 [&:not(:first-child)]:mt-6;
+  }
+
+  p,
+  li,
+  figcaption {
+    max-width: var(--max-width, 65ch);
+    @apply text-pretty;
+  }
+
+  blockquote {
+    @apply mt-6 border-l-2 pl-6 italic;
+  }
+
+  /* future-proofing for container queries */
+  body,
+  header,
+  main,
+  footer,
+  section,
+  article {
+    container-type: inline-size;
+  }
+}
+
+/* set both header and footer to full bleed */
+header,
+footer {
+  @apply col-full-bleed;
+}
